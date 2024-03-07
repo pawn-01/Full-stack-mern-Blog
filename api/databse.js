@@ -1,8 +1,8 @@
-require('dotenv').config();
+
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true });
+mongoose.connect('mongodb+srv://admi1:12Pawan2001@cluster0.o6i7hxp.mongodb.net/Blog');
 
 const userschema = new Schema({
     username:{type:String ,required:true,min:4,unique:true},
