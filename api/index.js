@@ -10,7 +10,6 @@ const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const fs = require('fs');
 const  Middleware  = require('./Middleware');
-const { error } = require('console');
 require('dotenv').config()
 
 app.use(express.json());
@@ -28,6 +27,7 @@ app.post('/register', async (req, res) => {
       res.json({message:"register Sucessfully"});
     }
     catch(error){
+      console.log(error);
        res.status(400).json({error});
     }
 })
@@ -52,7 +52,7 @@ app.post('/login',async(req,res)=>{
        }
    }
    catch(error){
-     // console.log(error);
+      console.log(error);
        res.status(400).json({error})
    }
 })
@@ -85,6 +85,7 @@ app.post('/create',upload.single('file'),Middleware,async(req,res)=>{
       res.json(postdoc);
    }
    catch(error){
+      console.log(error);
        res.status(400).json(error);
    }
 })
@@ -99,7 +100,7 @@ app.get('/posts',async(req,res)=>{
            res.json({array:post});
       } 
       catch (error) {
-        // console.log(error);
+         console.log(error);
          res.status(400).json(error);
       }
 })
@@ -112,7 +113,7 @@ app.get('/posts/:id',async(req,res)=>{
        res.json({postdoc});
    }
    catch(error){
-     // console.log(error);
+      console.log(error);
       res.status(400).json({error});
    }
 })
@@ -148,7 +149,7 @@ app.put('/edit/:id',upload.single('file'),Middleware,async(req,res)=>{
       res.json({postres,a:1});
    }
    catch(error){
-      // console.log(error);
+       console.log(error);
        res.status(400).json({error});
    }
 })
@@ -168,7 +169,7 @@ app.delete('/delete/:id',Middleware,async(req,res)=>{
      res.json("delete Sucessfully")
    }
    catch(error){
-     // console.log(error);
+      console.log(error);
       res.status(400).json({error})
    }
      

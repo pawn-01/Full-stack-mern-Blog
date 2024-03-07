@@ -18,9 +18,6 @@ const Postpage = () => {
          setposts(res.data.array);
       }
      }
-     setTimeout(() => {
-      backend();
-    }, 250);
 
       return ()=>{console.log("kya bkc hai bhai")}       
 

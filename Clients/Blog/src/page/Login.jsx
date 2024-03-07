@@ -14,7 +14,7 @@ const Login = () => {
 
   async function register(e){
      e.preventDefault();
-     const res = await axios.post('http://localhost:3000/login',{
+     const res = await axios.post(`${import.meta.env.VITE__URL}/login`,{
         username,
         password
      },{withCredentials:true})
