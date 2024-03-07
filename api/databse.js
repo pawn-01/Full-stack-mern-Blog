@@ -1,8 +1,8 @@
-require('dotenv').config()
+require('dotenv').config();
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-mongoose.connect(process.env.MONGO_URL).then((err,info)=>{
+mongoose.connect(`${process.env.MONGO_URL}`).then((err,info)=>{
     console.log("connected");
 })
 
