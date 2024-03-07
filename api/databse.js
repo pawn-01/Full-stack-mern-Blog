@@ -2,9 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-mongoose.connect(`${process.env.MONGO_URL}`).then((err,info)=>{
-    console.log("connected");
-})
+mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true });
 
 const userschema = new Schema({
     username:{type:String ,required:true,min:4,unique:true},
